@@ -1,0 +1,20 @@
+--- a/src/x.c
++++ b/src/x.c
+@@ -587,6 +587,17 @@ void x_draw_decoration(Con *con) {
+             } else if (p->parent_layout == L_SPLITV) {
+                 draw_util_rectangle(&(con->frame_buffer), p->color->indicator,
+                                     br.x, r->height + (br.height + br.y), r->width + br.width, -(br.height + br.y));
++            } else if (p->parent_layout == L_STACKED) {
++                draw_util_rectangle(&(con->frame_buffer), p->color->indicator,
++                                    0, r->height + (br.height + br.y), -(br.width + br.x), -(r->height + br.height)/2);
++                draw_util_rectangle(&(con->frame_buffer), p->color->indicator,
++                                    r->width + (br.width + br.x), r->height + (br.height + br.y), -(br.width + br.x), -(r->height + br.height)/2);
++            } else if (p->parent_layout == L_TABBED) {
++                draw_util_rectangle(&(con->frame_buffer), p->color->indicator,
++                                    0, br.y, -(br.width + br.x), (r->height + br.height)/2);
++                draw_util_rectangle(&(con->frame_buffer), p->color->indicator,
++                                    r->width + (br.width + br.x), br.y, -(br.width + br.x), (r->height + br.height)/2);
++
+             }
+         }
+     }

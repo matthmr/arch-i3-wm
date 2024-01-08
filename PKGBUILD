@@ -27,10 +27,18 @@ optdepends=('dmenu: for the default program launcher'
 replaces=('i3' 'i3bar' 'i3-gaps')
 provides=('i3-gaps')
 backup=('etc/i3/config')
-source=("$url/downloads/i3-$pkgver.tar.xz"{,.asc})
+source=("$url/downloads/i3-$pkgver.tar.xz"{,.asc}
+        'tabbed-and-stacked-indic.patch')
 b2sums=('3a5179d5b468ae66f81e53ee8376eb82d4f5d9441d1488f3f761fcad9d68b739fa963f4985db7448e5049983b8cf26ae3fa6bdac32c8677f0384f059cd9db507'
-        'SKIP')
+        'SKIP'
+        '1819ec1fa708238fc1b1fe2dfe2c3b69551051553a827e67e73330740e669333511f19e93e52b9be2d4a6dadf60f0a4c3a7b23c273e2dd351bfcbb1eaf40f657')
 validpgpkeys=('424E14D703E7C6D43D9D6F364E7160ED4AC8EE1D') # Michael Stapelberg <michael@stapelberg.de>
+
+prepare() {
+  cd i3-$pkgver
+
+  patch -Np1 -i ../tabbed-and-stacked-indic.patch
+}
 
 build() {
   cd i3-$pkgver
