@@ -6,7 +6,7 @@
 
 pkgname=i3-wm
 pkgver=4.23
-pkgrel=2
+pkgrel=3
 pkgdesc='Improved dynamic tiling window manager'
 arch=('x86_64')
 url="https://i3wm.org"
@@ -15,7 +15,7 @@ groups=('i3')
 depends=('libev' 'libxkbcommon-x11' 'pango' 'startup-notification' 'ttf-font'
          'xcb-util-cursor' 'xcb-util-keysyms' 'xcb-util-wm' 'xcb-util-xrm'
          'yajl')
-makedepends=('git' 'meson' 'xmlto')
+makedepends=('asciidoc' 'git' 'meson' 'xmlto')
 optdepends=('dmenu: for the default program launcher'
             'rofi: for a modern dmenu replacement'
             'i3lock: for the default screen locker'
@@ -34,7 +34,7 @@ validpgpkeys=('424E14D703E7C6D43D9D6F364E7160ED4AC8EE1D') # Michael Stapelberg <
 
 build() {
   cd i3
-  arch-meson build
+  arch-meson build -Dmans=true
   ninja -C build
 }
 
