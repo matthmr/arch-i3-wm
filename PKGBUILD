@@ -27,7 +27,6 @@ optdepends=('dmenu: for the default program launcher'
 replaces=('i3' 'i3bar' 'i3-gaps')
 provides=('i3-gaps')
 backup=('etc/i3/config')
-#source=("$url/downloads/i3-$pkgver.tar.xz"{,.asc})
 source=("git+https://github.com/i3/i3.git?signed#tag=${pkgver}")
 b2sums=('695474513c3987843c3f8c9352cbaeae2268628ae81a57f97bd870120dbab2b45e94f6c0cd6aea2b05c8b5a0d6aea52e03a599c03fb03d81bf9656284c4dd51f')
 validpgpkeys=('424E14D703E7C6D43D9D6F364E7160ED4AC8EE1D') # Michael Stapelberg <michael@stapelberg.de>
