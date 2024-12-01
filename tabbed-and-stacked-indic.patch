@@ -1,6 +1,8 @@
+diff --git a/src/x.c b/src/x.c
+index 6c70413..38ad063 100644
 --- a/src/x.c
 +++ b/src/x.c
-@@ -587,6 +587,17 @@ void x_draw_decoration(Con *con) {
+@@ -596,6 +596,17 @@ void x_draw_decoration(Con *con) {
              } else if (p->parent_layout == L_SPLITV) {
                  draw_util_rectangle(&(con->frame_buffer), p->color->indicator,
                                      br.x, r->height + (br.height + br.y), r->width + br.width, -(br.height + br.y));
